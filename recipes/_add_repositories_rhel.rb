@@ -1,7 +1,7 @@
 # Cookbook Name:: pnp4nagios
 # Recipe:: _add_repositories_rhel
 #
-# Copyright 2012, BigPoint GmbH
+# Copyright 2012, Bigpoint GmbH
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.

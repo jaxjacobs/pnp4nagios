@@ -2,7 +2,7 @@
 # Cookbook Name:: icinga
 # Recipe:: _server_config_pnp4nagios
 #
-# Copyright 2012, BigPoint GmbH
+# Copyright 2012, Bigpoint GmbH
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
