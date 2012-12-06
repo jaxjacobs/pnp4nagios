@@ -15,7 +15,7 @@ require 'chefspec'
 # Required for proper recipe testing by platform
 %w{debian rhel}.each do |platform|
 
-  describe "The pnp4nagios:_install #{platform} recipe" do
+  describe "The pnp4nagios:_configure recipe" do
     before (:all) {
       # Create our object
       @chef_run = ChefSpec::ChefRunner.new
@@ -34,19 +34,19 @@ require 'chefspec'
     it 'it should load service definitions from pnp4nagios::_define_services' do
       @chef_run.should include_recipe 'pnp4nagios::_define_services'
     end
-    it "should write file from template pnp4nagios.conf" do
-      pending "not implemented yet"
+    it 'should write file from template pnp4nagios.conf' do
+      pending 'not implemented yet'
     end
     case platform
     when 'debian'
-      t_path = "/etc/default"
+      t_path = '/etc/default'
     when 'rhel'
       t_path = '/etc/sysconfig'
     end
     ["#{t_path}/npcd",
-     "/etc/pnp4nagios/apache.conf",
-     "/etc/pnp4nagios/process_perfdata.cfg",
-     "/etc/pnp4nagios/config.php"].each do |file|
+     '/etc/pnp4nagios/apache.conf',
+     '/etc/pnp4nagios/process_perfdata.cfg',
+     '/etc/pnp4nagios/config.php'].each do |file|
       it "should create file from template #{file}" do
         @chef_run.should create_file file
       end
