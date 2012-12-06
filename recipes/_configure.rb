@@ -19,26 +19,16 @@
 
 include_recipe 'pnp4nagios::_define_services'
 
-# Platform specific attributes
-node.set[:pnp4nagios][:setup][:config][:vhost][:alias_path] = value_for_platform_family(
-  'rhel' => '/usr/share/nagios/html/pnp4nagios',
-  'debian' => '/usr/share/pnp4nagios/html'
-)
-
-node.set["npcd"]["module"]["file"] = value_for_platform_family(
-  'rhel' => '/usr/lib64/nagios/brokers/npcdmod.o',
-  'debian' => '/usr/lib/pnp4nagios/npcdmod.o'
-)
 # pnp4nagios templates
 template "#{node['apache']['dir']}/conf.d/pnp4nagios.conf" do
-  source "pnp4nagios/pnp4nagios.conf.erb"
+  source 'pnp4nagios/pnp4nagios.conf.erb'
   owner 'root'
   group 'root'
   mode 0640
-  notifies :reload, resources(:service => "apache2")
+  notifies :reload, resources(:service => 'apache2')
 end
-template "/etc/pnp4nagios/apache.conf" do
-  source "pnp4nagios/pnp4nagios.conf.erb"
+template '/etc/pnp4nagios/apache.conf' do
+  source 'pnp4nagios/pnp4nagios.conf.erb'
   owner 'root'
   group 'root'
   mode 0640
@@ -49,20 +39,20 @@ template_path = value_for_platform_family(
   'debian' => '/etc/default'
 )
 template "#{template_path}/npcd" do
-  source "pnp4nagios/npcd.erb"
+  source 'pnp4nagios/npcd.erb'
   owner 'root'
   group 'root'
   mode 0640
-  notifies :restart, resources(:service => "npcd")
+  notifies :restart, resources(:service => 'npcd')
 end
-template "/etc/pnp4nagios/process_perfdata.cfg" do
-  source "pnp4nagios/process_perfdata.cfg.erb"
+template '/etc/pnp4nagios/process_perfdata.cfg' do
+  source 'pnp4nagios/process_perfdata.cfg.erb'
   owner 'root'
   group 'root'
   mode 0644
 end
-template "/etc/pnp4nagios/config.php" do
-  source "pnp4nagios/pnp4nagios_config.php.erb"
+template '/etc/pnp4nagios/config.php' do
+  source 'pnp4nagios/pnp4nagios_config.php.erb'
   owner 'root'
   group node['apache']['user']
   mode 0640

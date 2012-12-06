@@ -15,7 +15,7 @@ require 'chefspec'
 # Required for proper recipe testing by platform
 %w{debian rhel}.each do |platform|
 
-  describe "The pnp4nagios:_configure recipe" do
+  describe 'The pnp4nagios:_configure recipe' do
     before (:all) {
       # Create our object
       @chef_run = ChefSpec::ChefRunner.new
