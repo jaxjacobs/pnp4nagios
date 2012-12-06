@@ -17,6 +17,6 @@
 #
 
 include_recipe 'pnp4nagios::_dependencies'
-include_recipe 'pnp4nagios::_add_repositories'
-include_recipe 'pnp4nagios::_install'
+include_recipe "pnp4nagios::_add_repositories_#{node['platform_family']}"
+include_recipe "pnp4nagios::_install_#{node['platform_family']}"
 include_recipe 'pnp4nagios::_configure'

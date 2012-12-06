@@ -16,12 +16,12 @@
 # limitations under the License.
 #
 
-service "apache2" do
+service 'apache2' do
   supports :status => true
   action :nothing
 end
 
-service "npcd" do
+service 'npcd' do
   supports :status => true
   action :nothing
 end
