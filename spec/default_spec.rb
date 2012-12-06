@@ -25,7 +25,7 @@ require 'chefspec'
       @chef_run.converge 'pnp4nagios::default'
       @chef_run
     }
-    %w(pnp4nagios::_dependencies pnp4nagios::_add_repositories pnp4nagios::_install pnp4nagios::_configure).each do |rcp|
+    ['pnp4nagios::_dependencies', "pnp4nagios::_add_repositories_#{platform}", "pnp4nagios::_install_#{platform}", 'pnp4nagios::_configure'].each do |rcp|
       it "should include recipe #{rcp}" do
         @chef_run.should include_recipe rcp
       end
