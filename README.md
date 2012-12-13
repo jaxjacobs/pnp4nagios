@@ -1,4 +1,4 @@
-Description
+Description [![Build Status](https://travis-ci.org/Bigpoint/pnp4nagios.png?branch=next)](https://travis-ci.org/Bigpoint/pnp4nagios)
 ===========
 
 Install and configures pnp4nagios for Icinga/Nagios
