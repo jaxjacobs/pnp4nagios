@@ -52,31 +52,31 @@ Attributes
 Recipes
 =======
 
-## rrdcached
+## pnp4nagios
 
 Install and configures a simple default rrdcache installation.
 
-## rrdcached::_dependencies
+## pnp4nagios::_dependencies
 
 Installs required software.
 
-## rrdcached::_install_rhel
+## pnp4nagios::_install_rhel
 
 Installs pnp4nagios on RHEL based systems.
 
-## rrdcached::_install_debian
+## pnp4nagios::_install_debian
 
 Installs pnp4nagios on Debian based systems.
 
-## rrdcached::_add_repositories_rhel
+## pnp4nagios::_add_repositories_rhel
 
 Installs pnp4nagios on RHEL based systems.
 
-## rrdcached::_add_repositories_debian
+## pnp4nagios::_add_repositories_debian
 
 Installs pnp4nagios on Debian based systems.
 
-## rrdcached::_configure
+## pnp4nagios::_configure
 
 Configures pnp4nagios for both RHEL and Debian.
 
