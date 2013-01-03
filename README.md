@@ -54,7 +54,7 @@ Recipes
 
 ## pnp4nagios
 
-Install and configures a simple default rrdcache installation.
+Install and configures a simple default pnp4nagios installation.
 
 ## pnp4nagios::_dependencies
 
