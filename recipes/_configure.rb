@@ -25,7 +25,7 @@ template "#{node['apache']['dir']}/conf.d/pnp4nagios.conf" do
   owner 'root'
   group 'root'
   mode 0640
-  notifies :reload, resources(:service => 'apache2')
+  notifies :reload, 'service[apache2]'
 end
 template '/etc/pnp4nagios/apache.conf' do
   source 'pnp4nagios/pnp4nagios.conf.erb'
@@ -43,7 +43,7 @@ template "#{template_path}/npcd" do
   owner 'root'
   group 'root'
   mode 0640
-  notifies :restart, resources(:service => 'npcd')
+  notifies :restart, 'service[npcd]'
 end
 template '/etc/pnp4nagios/process_perfdata.cfg' do
   source 'pnp4nagios/process_perfdata.cfg.erb'
