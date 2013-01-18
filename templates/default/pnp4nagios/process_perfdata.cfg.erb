@@ -1,11 +1,12 @@
-# pnp4nagios–0.6.12
+# Created by Chef
+#
 # Config File for process_perfdata.pl
 #
 # More info on RRDtool can be found at www.rrdtool.org
 
 #
 # process_perfdata.pl Timeout in seconds 
-#  
+#
 TIMEOUT = <%= node[:pnp4nagios][:setup][:config][:process_perfdata][:TIMEOUT] %>
 
 #
@@ -102,12 +103,12 @@ PREFORK = <%= node[:pnp4nagios][:setup][:config][:process_perfdata][:PREFORK] %>
 
 #
 # Gearman server to connect to
-# 
+#
 GEARMAN_HOST = <%= node[:pnp4nagios][:setup][:config][:process_perfdata][:GEARMAN_HOST] %>
 
 #
 # Restart child process after a given count of requests 
-# 
+#
 REQUESTS_PER_CHILD = <%= node[:pnp4nagios][:setup][:config][:process_perfdata][:REQUESTS_PER_CHILD] %>
 
 # enables or disables encryption. It is strongly
