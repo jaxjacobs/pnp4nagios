@@ -14,6 +14,7 @@ require 'chefspec'
 
 # Required for proper recipe testing by platform
 %w{debian}.each do |platform|
+%w{squeeze wheezy}.each do |codename|
   describe "The pnp4nagios::_install_#{platform} recipe" do
     before (:all) {
       # Create our object
@@ -21,7 +22,7 @@ require 'chefspec'
       @chef_run.node.automatic_attrs['hostname'] = 'localhost'
       @chef_run.node.automatic_attrs['platform'] = platform
       @chef_run.node.automatic_attrs['platform_family'] = platform
-      @chef_run.node.automatic_attrs['lsb'] = { 'codename' => 'squeeze' }
+      @chef_run.node.automatic_attrs['lsb'] = { 'codename' => codename }
       @chef_run.converge "pnp4nagios::_install_#{platform}"
       @chef_run
     }
@@ -29,4 +30,5 @@ require 'chefspec'
       @chef_run.should install_package 'pnp4nagios'
     end
   end
+end
 end
