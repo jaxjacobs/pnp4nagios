@@ -16,8 +16,7 @@
 # limitations under the License.
 #
 
-package 'pnp4nagios' do
-  version node['pnp4nagios']['version']
+package 'pnp4nagios pnp4nagios-web' do
   action :install
-  options '-t ' + node['lsb']['codename'] + '-backports'
+  options '-t debmon-' + node['lsb']['codename'] 
 end
