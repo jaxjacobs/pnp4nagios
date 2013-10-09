@@ -15,7 +15,7 @@ require 'chefspec'
 # Required for proper recipe testing by platform
 %w{debian}.each do |platform|
 %w{squeeze wheezy}.each do |codename|
-  describe "The pnp4nagios::_install_#{platform} recipe" do
+  describe "The pnp4nagios::_install_#{platform} #{codename} recipe" do
     before (:all) {
       # Create our object
       @chef_run = ChefSpec::ChefRunner.new
@@ -27,7 +27,7 @@ require 'chefspec'
       @chef_run
     }
     it 'should install pnp4nagios' do
-      @chef_run.should install_package 'pnp4nagios'
+      @chef_run.should install_package 'pnp4nagios pnp4nagios-web'
     end
   end
 end
