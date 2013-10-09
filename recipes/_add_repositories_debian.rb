@@ -17,13 +17,12 @@
 #
 
 # We install the latest version from squeeze backports so we add that
-if node['lsb']['codename'] == 'squeeze'
-    apt_repository node['lsb']['codename'] + '-backports' do
-        uri 'http://backports.debian.org/debian-backports'
-        distribution node['lsb']['codename'] + '-backports'
-        components ['main', 'non-free']
-        action :add
-    end
+apt_repository node['lsb']['codename'] + '-backports' do
+    uri 'http://backports.debian.org/debian-backports'
+    distribution node['lsb']['codename'] + '-backports'
+    components ['main', 'non-free']
+    only_if { node['lsb']['codename'] == 'squeeze' }
+    action :add
 end
 
 apt_repository 'debmon-' + node['lsb']['codename'] do
