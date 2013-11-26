@@ -16,13 +16,8 @@
 # limitations under the License.
 #
 
-case "#{node['platform']}"
-when 'ubuntu'
-    include_recipe "pnp4nagios::_install_ubuntu"
-    include_recipe 'pnp4nagios::_configure'
-else
-    include_recipe 'pnp4nagios::_dependencies'
-    include_recipe "pnp4nagios::_add_repositories_#{node['platform_family']}"
-    include_recipe "pnp4nagios::_install_#{node['platform_family']}"
-    include_recipe 'pnp4nagios::_configure'
-end
+include_recipe "pnp4nagios::_install_ubuntu"
+#include_recipe 'pnp4nagios::_dependencies'
+#include_recipe "pnp4nagios::_add_repositories_#{node['platform_family']}"
+#include_recipe "pnp4nagios::_install_#{node['platform_family']}"
+include_recipe 'pnp4nagios::_configure'
