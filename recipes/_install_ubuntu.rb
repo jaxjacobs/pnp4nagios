@@ -16,6 +16,6 @@
 # limitations under the License.
 #
 
-package 'pnp4nagios pnp4nagios-web' do
+package %w(pnp4nagios pnp4nagios-web) do
   action :install
 end
