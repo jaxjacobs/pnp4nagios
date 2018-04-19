@@ -16,6 +16,7 @@
 # limitations under the License.
 #
 
-package %w(pnp4nagios pnp4nagios-web) do
+%w(pnp4nagios pnp4nagios-web).each do |package_name|
+package package_name do
   action :install
 end
